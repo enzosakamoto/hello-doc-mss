@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+cipher.sh
+
 # C extensions
 *.so
 
