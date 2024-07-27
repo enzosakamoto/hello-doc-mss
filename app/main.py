@@ -9,6 +9,7 @@ app = FastAPI()
 origins = [
     "http://localhost:3000",
     "http://3.80.203.53",
+    "http://ec2-3-80-203-53.compute-1.amazonaws.com",
     "*"
 ]
 
