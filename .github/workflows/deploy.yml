@@ -27,6 +27,4 @@ jobs:
             whoami
             ls -al
           SCRIPT_AFTER: |
-            whoami
-            ls -al
             bash docker-mss.sh
