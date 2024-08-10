@@ -6,16 +6,9 @@ import os
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",
-    "http://3.80.203.53",
-    "http://ec2-3-80-203-53.compute-1.amazonaws.com",
-    "*"
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -83,11 +76,11 @@ async def get_video_info(url: str):
     except KeyError:
         raise HTTPException(
             status_code=400,
-            detail="Error: Video is not available or cannot be downloaded",
+            detail="Error: Video is not available or cannot be accessed",
         )
     except ValueError:
         raise HTTPException(status_code=400, detail="Error: Invalid URL")
     except Exception as e:
         raise HTTPException(
-            status_code=400, detail="Error downloading video: " + str(e)
+            status_code=400, detail="Error getting video info: " + str(e)
         )
